@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles.css";
 
-export default function CurrentWeatherTemperature() {
+export default function CurrentWeatherTemperature(weather) {
   return (
     <div className="col-3 current-weather-column">
       <div className="current-weather-both">
@@ -16,7 +16,7 @@ export default function CurrentWeatherTemperature() {
           </a>
         </span>
       </div>
-      <p className="current-weather">Mostly sunny</p>
+      <p className="current-weather">{weather.weather[0].description}</p>
     </div>
   );
 }

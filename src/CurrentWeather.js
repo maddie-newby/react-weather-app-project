@@ -8,15 +8,15 @@ import CurrentWeatherDetailsHighLow from "./CurrentWeather/CurrentWeatherDetails
 import CurrentWeatherDetailsWindHumidity from "./CurrentWeather/CurrentWeatherDetails/CurrentWeatherDetailsWindHumidity";
 import CurrentWeatherDetailsSunriseSunset from "./CurrentWeather/CurrentWeatherDetails/CurrentWeatherDetailsSunriseSunset";
 
-export default function CurrentWeather() {
+export default function CurrentWeather(weather) {
   return (
     <div className="row current">
-      <CurrentWeatherIcon />
-      <CurrentWeatherTemperature />
-      <CurrentWeatherLine />
-      <CurrentWeatherDetailsHighLow />
-      <CurrentWeatherDetailsWindHumidity />
-      <CurrentWeatherDetailsSunriseSunset />
+      <CurrentWeatherIcon weather={weather.weather[0].icon} />
+      <CurrentWeatherTemperature weather={weather} />
+      <CurrentWeatherLine weather={weather} />
+      <CurrentWeatherDetailsHighLow weather={weather} />
+      <CurrentWeatherDetailsWindHumidity weather={weather} />
+      <CurrentWeatherDetailsSunriseSunset weather={weather} />
     </div>
   );
 }
