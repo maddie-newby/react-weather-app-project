@@ -1,15 +1,12 @@
 import React from "react";
 import "./styles.css";
-
-import CitySearch from "./CitySearch";
-import Next5Days from "./Next5Days";
+import Weather from "./Weather.js";
 
 export default function App() {
   return (
     <div className="App">
       <div className="weather-app">
-        <Weather />
-        <Next5Days />
+        <Weather defaultCity="London" />
       </div>
     </div>
   );

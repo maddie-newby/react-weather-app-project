@@ -1,3 +1,22 @@
+/* clears the 'X' from Internet Explorer */
+input[type="search"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type="search"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
 html {
   background-position: center;
   background-repeat: no-repeat;
@@ -32,15 +51,6 @@ body {
 
 .alignleft {
   max-width: fit-content;
-}
-
-.alignright {
-  width: 50%;
-  padding-left: 0;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
-  align-items: baseline;
 }
 
 h1 {
@@ -88,7 +98,8 @@ input {
 
 .form-group {
   display: flex;
-  width: 100%;
+  flex-direction: column;
+  width: 75%;
 }
 
 .search-bar {

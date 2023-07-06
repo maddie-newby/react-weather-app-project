@@ -8,15 +8,22 @@ import CurrentWeatherDetailsHighLow from "./CurrentWeather/CurrentWeatherDetails
 import CurrentWeatherDetailsWindHumidity from "./CurrentWeather/CurrentWeatherDetails/CurrentWeatherDetailsWindHumidity";
 import CurrentWeatherDetailsSunriseSunset from "./CurrentWeather/CurrentWeatherDetails/CurrentWeatherDetailsSunriseSunset";
 
-export default function CurrentWeather(weather) {
+export default function CurrentWeather(props) {
   return (
-    <div className="row current">
-      <CurrentWeatherIcon weather={weather.weather[0].icon} />
-      <CurrentWeatherTemperature weather={weather} />
-      <CurrentWeatherLine weather={weather} />
-      <CurrentWeatherDetailsHighLow weather={weather} />
-      <CurrentWeatherDetailsWindHumidity weather={weather} />
-      <CurrentWeatherDetailsSunriseSunset weather={weather} />
+    <div>
+      <div className="alignleft">
+        <h1 className="city">{props.city}</h1>
+        <h2 className="local-time">10:00</h2>
+        <h2 className="date">Tuesday 13th June 2023</h2>
+      </div>
+      <div className="row current">
+        <CurrentWeatherIcon code={props.data.icon} />
+        {/*<CurrentWeatherTemperature />
+      <CurrentWeatherLine />
+      <CurrentWeatherDetailsHighLow />
+      <CurrentWeatherDetailsWindHumidity />
+  <CurrentWeatherDetailsSunriseSunset />*/}
+      </div>
     </div>
   );
 }
