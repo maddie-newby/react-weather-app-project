@@ -1,12 +1,18 @@
-import './App.css';
-import Weather from './Weather';
+import React from "react";
+import "./styles.css";
+
+import CitySearch from "./CitySearch";
+import CurrentWeather from "./CurrentWeather";
+import Next5Days from "./Next5Days";
 
 export default function App() {
   return (
     <div className="App">
-        <h1>Enter a city</h1>
-        <Weather city="New York"/>
-<footer>This project was coded by Madison Newby and is hosted on <a href='https://github.com/maddie-newby/react-weather-app-project'>GitHub</a></footer>
+      <div className="weather-app">
+        <CitySearch />
+        <CurrentWeather />
+        <Next5Days />
+      </div>
     </div>
   );
-};
+}
