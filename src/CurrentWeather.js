@@ -18,13 +18,10 @@ export default function CurrentWeather(props) {
           {props.data.city}, {props.data.country}
         </h1>
         <h2 className="local-time">
-          <FormattedTime
-            timestamp={props.data.timestamp}
-            timezone={props.data.timezone}
-          />
+          <FormattedTime time={props.data.time} />
         </h2>
         <h2 className="date">
-          <FormattedDate date={props.data.timestamp} />
+          <FormattedDate date={props.data.date} />
         </h2>
       </div>
       <span className="row current">
@@ -45,7 +42,6 @@ export default function CurrentWeather(props) {
         <CurrentWeatherDetailsSunriseSunset
           sunrise={props.data.sunrise}
           sunset={props.data.sunset}
-          timezone={props.data.timezone}
         />
       </span>
     </div>

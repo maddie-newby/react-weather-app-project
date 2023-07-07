@@ -13,19 +13,26 @@ export default function Weather(props) {
     setWeatherData({
       ready: true,
       coordinates: response.data.coord,
-      timestamp: response.data.dt,
+      date: new Date(response.data.dt * 1000),
+      time: new Date((response.data.dt + response.data.timezone) * 1000),
       timezone: response.data.timezone,
       temperature: response.data.main.temp,
       highTemperature: response.data.main.temp_max,
       lowTemperature: response.data.main.temp_min,
       humidity: response.data.main.humidity,
-      description: response.data.weather[0].description,
+      description:
+        response.data.weather[0].description.charAt(0).toUpperCase() +
+        response.data.weather[0].description.substr(1),
       icon: response.data.weather[0].icon,
       wind: response.data.wind.speed,
       city: response.data.name,
       country: response.data.sys.country,
-      sunrise: response.data.sys.sunrise,
-      sunset: response.data.sys.sunset,
+      sunrise: new Date(
+        (response.data.sys.sunrise + response.data.timezone) * 1000
+      ),
+      sunset: new Date(
+        (response.data.sys.sunset + response.data.timezone) * 1000
+      ),
     });
   }
 
@@ -57,7 +64,7 @@ export default function Weather(props) {
                 placeholder="Enter city"
                 autoFocus="on"
                 onChange={handleCityChange}
-              />{" "}
+              />
               <button className="current-location-link">
                 Use current location
               </button>

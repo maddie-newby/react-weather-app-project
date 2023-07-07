@@ -1,6 +1,22 @@
 import React from "react";
 
 export default function FormattedDate(props) {
+  let date = props.date.getDate();
+
+  const nth = (d) => {
+    if (d > 3 && d < 21) return "th";
+    switch (d % 10) {
+      case 1:
+        return "st";
+      case 2:
+        return "nd";
+      case 3:
+        return "rd";
+      default:
+        return "th";
+    }
+  };
+
   let days = [
     "Sunday",
     "Monday",
@@ -10,7 +26,7 @@ export default function FormattedDate(props) {
     "Friday",
     "Saturday",
   ];
-  let day = days[props.timestamp.getDay()];
+  let day = days[props.date.getDay()];
 
   let months = [
     "January",
@@ -26,9 +42,14 @@ export default function FormattedDate(props) {
     "November",
     "December",
   ];
-  let month = months[props.timestamp.getMonth()];
+  let month = months[props.date.getMonth()];
 
-  let year = now.getFullYear();
+  let year = props.date.getFullYear();
 
-  return `${day} ${date}<sup>${nth(date)}</sup> ${month} ${year}`;
+  return (
+    <div>
+      {day} {date}
+      <sup>{nth(date)}</sup> {month} {year}
+    </div>
+  );
 }
