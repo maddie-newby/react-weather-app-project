@@ -9,75 +9,12 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
 
-  function formatTime(timestamp, timezone) {
-    let time = new Date(timestamp + timezone * 1000);
-    let hours =
-      time.getHours() < 10 ? `0${time.getHours()}` : `${time.getHours()}`;
-    let minutes =
-      time.getMinutes() < 10 ? `0${time.getMinutes()}` : `${time.getMinutes()}`;
-
-    if (hours > 23) {
-      hours -= 24;
-    } else if (hours < 0) {
-      hours += 24;
-    }
-
-    return `${hours}:${minutes}`;
-  }
-
-  function formatDate(timestamp) {
-    let now = new Date(timestamp * 1000);
-    let date = now.getDate();
-
-    const nth = (d) => {
-      if (d > 3 && d < 21) return "th";
-      switch (d % 10) {
-        case 1:
-          return "st";
-        case 2:
-          return "nd";
-        case 3:
-          return "rd";
-        default:
-          return "th";
-      }
-    };
-    let days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    let day = days[now.getDay()];
-    let months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    let month = months[now.getMonth()];
-    let year = now.getFullYear();
-
-    return `${day} ${date}<sup>${nth(date)}</sup> ${month} ${year}`;
-  }
-
   function handleResponse(response) {
     setWeatherData({
       ready: true,
       coordinates: response.data.coord,
-      time: formatTime(response.data.dt * 1000, response.data.timezone),
-      date: formatDate(response.data.sys.timestamp),
+      timestamp: response.data.dt,
+      timezone: response.data.timezone,
       temperature: response.data.main.temp,
       highTemperature: response.data.main.temp_max,
       lowTemperature: response.data.main.temp_min,
@@ -87,14 +24,8 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       city: response.data.name,
       country: response.data.sys.country,
-      sunrise: formatTime(
-        response.data.sys.sunrise * 1000,
-        response.data.timezone
-      ),
-      sunset: formatTime(
-        response.data.sys.sunset * 1000,
-        response.data.timezone
-      ),
+      sunrise: response.data.sys.sunrise,
+      sunset: response.data.sys.sunset,
     });
   }
 
