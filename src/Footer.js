@@ -12,7 +12,7 @@ export default function Footer() {
         rel="noopener noreferrer"
       >
         open-sourced on GitHub
-      </a>
+      </a>{" "}
       and{" "}
       <a
         href="https://www.netlify.com/"

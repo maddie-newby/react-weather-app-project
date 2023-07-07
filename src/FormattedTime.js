@@ -11,7 +11,6 @@ export default function FormattedTime(props) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  console.log(time);
   if (hours > 23) {
     hours -= 24;
   } else if (hours < 0) {

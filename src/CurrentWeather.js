@@ -25,7 +25,7 @@ export default function CurrentWeather(props) {
         </h2>
       </div>
       <span className="row current">
-        <CurrentWeatherIcon code={props.data.icon} />
+        <CurrentWeatherIcon code={props.data.icon} size={100} />
         <CurrentWeatherTemperature
           temperature={props.data.temperature}
           description={props.data.description}
