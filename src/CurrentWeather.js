@@ -12,18 +12,32 @@ export default function CurrentWeather(props) {
   return (
     <div>
       <div className="alignleft">
-        <h1 className="city">{props.city}</h1>
-        <h2 className="local-time">10:00</h2>
-        <h2 className="date">Tuesday 13th June 2023</h2>
+        <h1 className="city">
+          {props.data.city}, {props.data.country}
+        </h1>
+        <h2 className="local-time">{props.data.time}</h2>
+        <h2 className="date">{props.data.date}</h2>
       </div>
-      <div className="row current">
+      <span className="row current">
         <CurrentWeatherIcon code={props.data.icon} />
-        {/*<CurrentWeatherTemperature />
-      <CurrentWeatherLine />
-      <CurrentWeatherDetailsHighLow />
-      <CurrentWeatherDetailsWindHumidity />
-  <CurrentWeatherDetailsSunriseSunset />*/}
-      </div>
+        <CurrentWeatherTemperature
+          temperature={props.data.temperature}
+          description={props.data.description}
+        />
+        <CurrentWeatherLine />
+        <CurrentWeatherDetailsHighLow
+          highTemperature={props.data.highTemperature}
+          lowTemperature={props.data.lowTemperature}
+        />
+        <CurrentWeatherDetailsWindHumidity
+          wind={props.data.wind}
+          humidity={props.data.humidity}
+        />
+        <CurrentWeatherDetailsSunriseSunset
+          sunrise={props.data.sunrise}
+          sunset={props.data.sunset}
+        />
+      </span>
     </div>
   );
 }

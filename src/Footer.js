@@ -6,7 +6,7 @@ export default function Footer() {
     <footer>
       This project was coded by Maddie Newby and is{" "}
       <a
-        href="https://github.com/maddie-newby/weather-app-project"
+        href="https://github.com/maddie-newby/react-weather-app-project"
         target="_blank"
         className="footer-link"
         rel="noopener noreferrer"
