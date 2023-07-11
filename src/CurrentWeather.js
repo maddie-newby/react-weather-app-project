@@ -1,12 +1,7 @@
 import React from "react";
 import "./styles.css";
 
-import CurrentWeatherTemperature from "./CurrentWeather/CurrentWeatherTemperature";
-import CurrentWeatherIcon from "./CurrentWeather/CurrentWeatherIcon";
-import CurrentWeatherLine from "./CurrentWeather/CurrentWeatherLine";
-import CurrentWeatherDetailsHighLow from "./CurrentWeather/CurrentWeatherDetails/CurrentWeatherDetailsHighLow";
-import CurrentWeatherDetailsWindHumidity from "./CurrentWeather/CurrentWeatherDetails/CurrentWeatherDetailsWindHumidity";
-import CurrentWeatherDetailsSunriseSunset from "./CurrentWeather/CurrentWeatherDetails/CurrentWeatherDetailsSunriseSunset";
+import CurrentWeatherDetails from "./CurrentWeather/CurrentWeatherDetails";
 import FormattedTime from "./FormattedTime";
 import FormattedDate from "./FormattedDate";
 
@@ -25,21 +20,14 @@ export default function CurrentWeather(props) {
         </h2>
       </div>
       <span className="row current">
-        <CurrentWeatherIcon code={props.data.icon} size={100} />
-        <CurrentWeatherTemperature
-          temperature={props.data.temperature}
+        <CurrentWeatherDetails
+          code={props.data.icon}
+          celsius={props.data.temperature}
           description={props.data.description}
-        />
-        <CurrentWeatherLine />
-        <CurrentWeatherDetailsHighLow
           highTemperature={props.data.highTemperature}
           lowTemperature={props.data.lowTemperature}
-        />
-        <CurrentWeatherDetailsWindHumidity
           wind={props.data.wind}
           humidity={props.data.humidity}
-        />
-        <CurrentWeatherDetailsSunriseSunset
           sunrise={props.data.sunrise}
           sunset={props.data.sunset}
         />
