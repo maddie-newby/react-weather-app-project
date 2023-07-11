@@ -10,12 +10,26 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
+    let d = new Date();
+    let localTime = d.getTime();
+    let localOffset = d.getTimezoneOffset() * 60000;
+    let utc = localTime + localOffset;
+
+    let sunrise = new Date(response.data.sys.sunrise * 1000);
+    let sunriseLocalTime = sunrise.getTime();
+    let sunriseLocalOffset = sunrise.getTimezoneOffset() * 60000;
+    let sunriseUtc = sunriseLocalTime + sunriseLocalOffset;
+
+    let sunset = new Date(response.data.sys.sunset * 1000);
+    let sunsetLocalTime = sunset.getTime();
+    let sunsetLocalOffset = sunset.getTimezoneOffset() * 60000;
+    let sunsetUtc = sunsetLocalTime + sunsetLocalOffset;
+
     setWeatherData({
       ready: true,
       coordinates: response.data.coord,
-      date: new Date(response.data.dt * 1000),
-      time: new Date((response.data.dt + response.data.timezone) * 1000),
-      timezone: response.data.timezone,
+      date: new Date(utc + 1000 * response.data.timezone),
+      time: new Date(utc + 1000 * response.data.timezone),
       temperature: response.data.main.temp,
       highTemperature: response.data.main.temp_max,
       lowTemperature: response.data.main.temp_min,
@@ -27,12 +41,8 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       city: response.data.name,
       country: response.data.sys.country,
-      sunrise: new Date(
-        (response.data.sys.sunrise + response.data.timezone) * 1000
-      ),
-      sunset: new Date(
-        (response.data.sys.sunset + response.data.timezone) * 1000
-      ),
+      sunrise: new Date(sunriseUtc + 1000 * response.data.timezone),
+      sunrise: new Date(sunsetUtc + 1000 * response.data.timezone),
     });
   }
 

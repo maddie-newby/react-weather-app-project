@@ -95,9 +95,7 @@ export default function CurrentWeatherDetails(props) {
           </div>
           <p className="current-weather">{props.description}</p>
         </div>
-        <div className="col-1 vertical-line">
-          <i className="fa-solid fa-grip-lines-vertical"></i>
-        </div>
+        <CurrentWeatherLine />
         <div className="col-2 current-column">
           <span className="current-values temp-max">
             {Math.round(fahrenheit(props.highTemperature))}
