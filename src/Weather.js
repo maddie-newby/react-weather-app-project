@@ -42,7 +42,7 @@ export default function Weather(props) {
       city: response.data.name,
       country: response.data.sys.country,
       sunrise: new Date(sunriseUtc + 1000 * response.data.timezone),
-      sunrise: new Date(sunsetUtc + 1000 * response.data.timezone),
+      sunset: new Date(sunsetUtc + 1000 * response.data.timezone),
     });
   }
 
