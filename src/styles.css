@@ -121,6 +121,10 @@ a:hover {
   width: fit-content;
 }
 
+.current-column {
+  width: 70px;
+}
+
 .description-sections {
   margin: 0, 5px;
 }
@@ -190,7 +194,6 @@ h2 {
   height: fit-content;
   text-align: center;
   transform: scale(1, 8);
-  padding: 5%;
 }
 
 .current {
@@ -247,10 +250,6 @@ p {
   margin: 0;
 }
 
-.five-day-details {
-  font-size: 15px;
-}
-
 footer {
   font-size: 15px;
   text-align: center;
@@ -258,15 +257,4 @@ footer {
 
 .footer-link {
   color: #eb455f;
-}
-
-.forecast-row {
-  padding-top: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.forecast-icon {
-  width: 75px;
 }

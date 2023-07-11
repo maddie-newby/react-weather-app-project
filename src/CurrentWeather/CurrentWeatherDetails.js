@@ -76,7 +76,7 @@ export default function CurrentWeatherDetails(props) {
   } else {
     return (
       <span className="d-flex justify-content-between align-items-center">
-        <CurrentWeatherIcon code={props.icon} size={90} />
+        <CurrentWeatherIcon code={props.icon} size={90} color={"black"} />
         <div className="col-3 current-weather-column">
           <div className="current-weather-both">
             <h1 className="current-weather-temperature">
