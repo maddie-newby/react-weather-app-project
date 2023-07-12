@@ -1,0 +1,22 @@
+.forecastHeading {
+  padding-bottom: 10px;
+}
+
+.weatherForecast {
+  padding: 10px;
+}
+
+.five-day-details {
+  font-size: 15px;
+}
+
+.forecast-row {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.forecast-icon {
+  width: 75px;
+}
