@@ -11,7 +11,7 @@
 }
 
 .forecast-row {
-  padding: 0;
+  padding: 0 0 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
