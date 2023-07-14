@@ -1,5 +1,4 @@
 import React from "react";
-import "../../styles.css";
 import FormattedTime from "../../FormattedTime";
 
 export default function CurrentWeatherDetailsSunriseSunset(props) {

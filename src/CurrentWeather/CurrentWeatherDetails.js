@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import FormattedTime from "../FormattedTime";
-import "../styles.css";
 import CurrentWeatherIcon from "./CurrentWeatherIcon";
 import CurrentWeatherLine from "./CurrentWeatherLine";
 import CurrentWeatherDetailsSunriseSunset from "./CurrentWeatherDetails/CurrentWeatherDetailsSunriseSunset";

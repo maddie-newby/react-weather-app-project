@@ -1,6 +1,4 @@
 import React from "react";
-import "./styles.css";
-
 import CurrentWeatherDetails from "./CurrentWeather/CurrentWeatherDetails";
 import FormattedTime from "./FormattedTime";
 import FormattedDate from "./FormattedDate";
